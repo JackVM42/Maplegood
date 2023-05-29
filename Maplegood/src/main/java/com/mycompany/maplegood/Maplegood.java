@@ -12,6 +12,7 @@ package com.mycompany.maplegood;
 public class Maplegood {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
     }
+  
+
 }
