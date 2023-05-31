@@ -1,3 +1,5 @@
+package com.mycompany.maplegood;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -27,11 +29,15 @@ public class LaunchPage extends javax.swing.JFrame {
 
         jPasswordField1 = new javax.swing.JPasswordField();
         jTextField1 = new javax.swing.JTextField();
+        jDialog1 = new javax.swing.JDialog();
         nameLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
         nameField = new javax.swing.JTextField();
         enterButton = new javax.swing.JButton();
         passwordField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        passwordMessageBox = new javax.swing.JTextPane();
+        newAccountButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileName = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -39,6 +45,17 @@ public class LaunchPage extends javax.swing.JFrame {
         jPasswordField1.setText("jPasswordField1");
 
         jTextField1.setText("jTextField1");
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +87,17 @@ public class LaunchPage extends javax.swing.JFrame {
             }
         });
 
+        passwordMessageBox.setFont(new java.awt.Font("Helvetica Neue", 1, 20)); // NOI18N
+        jScrollPane1.setViewportView(passwordMessageBox);
+
+        newAccountButton.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        newAccountButton.setText("Create Or Remove Account");
+        newAccountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newAccountButtonActionPerformed(evt);
+            }
+        });
+
         fileName.setText("File");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -91,28 +119,40 @@ public class LaunchPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordLabel)
-                    .addComponent(nameField)
-                    .addComponent(enterButton, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                    .addComponent(passwordField))
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passwordLabel)
+                            .addComponent(nameField)
+                            .addComponent(enterButton, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                            .addComponent(passwordField))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(newAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap()
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
                 .addComponent(enterButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(newAccountButton)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,16 +171,25 @@ public class LaunchPage extends javax.swing.JFrame {
         String password = passwordField.getText();
         
         //passwordCheck method not yet implemented
-        if(passwordCheck(name, password) == true){
+        if(PasswordManager.checkPassword(name, password) == true){
             this.dispose();
             HomePage home = new HomePage();
             home.setVisible(true);
+        }
+        else{
+            passwordMessageBox.setText("Passsword or Username is Incorrect");
         }
     }//GEN-LAST:event_enterButtonActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void newAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newAccountButtonActionPerformed
+        this.dispose();
+            NewAccount newAccountPage = new NewAccount();
+            newAccountPage.setVisible(true);
+    }//GEN-LAST:event_newAccountButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,13 +229,17 @@ public class LaunchPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton enterButton;
     private javax.swing.JMenu fileName;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JButton newAccountButton;
     private javax.swing.JTextField passwordField;
     private javax.swing.JLabel passwordLabel;
+    private javax.swing.JTextPane passwordMessageBox;
     // End of variables declaration//GEN-END:variables
 }
