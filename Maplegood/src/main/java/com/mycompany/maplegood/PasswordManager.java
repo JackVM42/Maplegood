@@ -19,16 +19,9 @@ import java.security.NoSuchAlgorithmException;
 public class PasswordManager {
          
         public static HashMap<String, String> data = new HashMap<>();
-
+        
 
         public static boolean checkPassword(String name, String password) {
-
-            //move usernames and passwords into hashmap (hash passwords using sha256)
-            data.put("Ben", sha256Hash("password123"));
-            data.put("Jacob", sha256Hash("superinsanepassword"));
-            data.put("hacker", sha256Hash("1337"));
-
-
 
                 //gets what PASSWORD should be (sets password to null if username dose not exist)
                 String RealPass = data.get(name);
@@ -46,13 +39,16 @@ public class PasswordManager {
         public static void newAccount(String name, String password) {
              data.put(name, sha256Hash(password));
              
-             
+             System.out.println("Entire Map:");
+             System.out.println(data);
              //NOTE MAKE STUDENT OBJECT
                      
         }
         
         public static void removeAccount(String name){
             data.remove(name);
+            
+            //NOTE Remove student object
         }
 
 
@@ -68,7 +64,7 @@ public class PasswordManager {
             String hash = new String(hashBytes, StandardCharsets.UTF_8);
 
 
-            System.out.println("SHA-256 Hash: " + hash);
+            //System.out.println("SHA-256 Hash: " + hash);
             return hash;
         }
         catch (NoSuchAlgorithmException e) {

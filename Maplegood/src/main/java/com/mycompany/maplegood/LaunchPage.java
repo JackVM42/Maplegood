@@ -15,6 +15,13 @@ public class LaunchPage extends javax.swing.JFrame {
      * Creates new form LaunchPage
      */
     public LaunchPage() {
+        //TEST
+        //move usernames and passwords into hashmap (hash passwords using sha256)
+            PasswordManager.data.put("Ben", PasswordManager.sha256Hash("password123"));
+            PasswordManager.data.put("Jacob", PasswordManager.sha256Hash("superinsanepassword"));
+            PasswordManager.data.put("hacker", PasswordManager.sha256Hash("1337"));
+        //TEST
+        
         initComponents();
     }
 

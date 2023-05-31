@@ -150,12 +150,16 @@ public class NewAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordField1ActionPerformed
 
     private void addAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAccountButtonActionPerformed
-        PasswordManager.newAccount(nameField.getText(), passwordField1.getText());
+        String name = nameField1.getText();
+        String password = passwordField1.getText();
+        
+        PasswordManager.newAccount(name, password);
+        
     }//GEN-LAST:event_addAccountButtonActionPerformed
 
     private void removeAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAccountButtonActionPerformed
-        if(PasswordManager.checkPassword(nameField.getText(), passwordField1.getText()) == true){
-           PasswordManager.removeAccount(nameField.getText()); 
+        if(PasswordManager.checkPassword(nameField1.getText(), passwordField1.getText()) == true){
+           PasswordManager.removeAccount(nameField1.getText()); 
         }
         
         
