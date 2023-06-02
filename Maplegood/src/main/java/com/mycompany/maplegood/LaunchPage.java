@@ -1,5 +1,11 @@
 package com.mycompany.maplegood;
 
+
+import com.mycompany.maplegood.NewAccount;
+import com.mycompany.maplegood.PasswordManager;
+
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -15,12 +21,6 @@ public class LaunchPage extends javax.swing.JFrame {
      * Creates new form LaunchPage
      */
     public LaunchPage() {
-        //TEST
-        //move usernames and passwords into hashmap (hash passwords using sha256)
-            PasswordManager.data.put("Ben", PasswordManager.sha256Hash("password123"));
-            PasswordManager.data.put("Jacob", PasswordManager.sha256Hash("superinsanepassword"));
-            PasswordManager.data.put("hacker", PasswordManager.sha256Hash("1337"));
-        //TEST
         
         initComponents();
     }
@@ -45,6 +45,7 @@ public class LaunchPage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         passwordMessageBox = new javax.swing.JTextPane();
         newAccountButton = new javax.swing.JButton();
+        testDataButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileName = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -105,6 +106,13 @@ public class LaunchPage extends javax.swing.JFrame {
             }
         });
 
+        testDataButton.setText("Add Test Data");
+        testDataButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testDataButtonActionPerformed(evt);
+            }
+        });
+
         fileName.setText("File");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
@@ -135,7 +143,8 @@ public class LaunchPage extends javax.swing.JFrame {
                             .addComponent(nameField)
                             .addComponent(enterButton, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                             .addComponent(passwordField))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(testDataButton)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
@@ -148,7 +157,9 @@ public class LaunchPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(testDataButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -197,6 +208,18 @@ public class LaunchPage extends javax.swing.JFrame {
             NewAccount newAccountPage = new NewAccount();
             newAccountPage.setVisible(true);
     }//GEN-LAST:event_newAccountButtonActionPerformed
+
+    private void testDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testDataButtonActionPerformed
+
+        //move usernames and passwords into hashmap (hash passwords using sha256)
+            PasswordManager.data.put("Ben", PasswordManager.sha256Hash("password123"));
+            PasswordManager.data.put("Jacob", PasswordManager.sha256Hash("superinsanepassword"));
+            PasswordManager.data.put("hacker", PasswordManager.sha256Hash("1337"));
+            
+            //create default students
+            
+        
+    }//GEN-LAST:event_testDataButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,5 +271,6 @@ public class LaunchPage extends javax.swing.JFrame {
     private javax.swing.JTextField passwordField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JTextPane passwordMessageBox;
+    private javax.swing.JButton testDataButton;
     // End of variables declaration//GEN-END:variables
 }

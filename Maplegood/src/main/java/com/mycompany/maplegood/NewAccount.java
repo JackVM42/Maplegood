@@ -1,6 +1,9 @@
 package com.mycompany.maplegood;
 
 
+
+
+import com.mycompany.maplegood.PasswordManager;
 import com.mycompany.maplegood.LaunchPage;
 
 /*
@@ -158,8 +161,12 @@ public class NewAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_addAccountButtonActionPerformed
 
     private void removeAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAccountButtonActionPerformed
-        if(PasswordManager.checkPassword(nameField1.getText(), passwordField1.getText()) == true){
-           PasswordManager.removeAccount(nameField1.getText()); 
+        String name = nameField1.getText();
+        String password = passwordField1.getText();
+        System.out.println("TEST 1");
+        if(PasswordManager.checkPassword(name, password) == true){
+            System.out.println("TEST 2");
+           PasswordManager.removeAccount(name); 
         }
         
         
