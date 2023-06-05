@@ -158,6 +158,11 @@ public class NewAccount extends javax.swing.JFrame {
         
         PasswordManager.newAccount(name, password);
         
+        //Move to student input page
+        this.dispose();
+            InputStudentInfo studentInputPage = new InputStudentInfo();
+            studentInputPage.setVisible(true);
+        
     }//GEN-LAST:event_addAccountButtonActionPerformed
 
     private void removeAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAccountButtonActionPerformed

@@ -3,6 +3,7 @@ package com.mycompany.maplegood;
 
 import com.mycompany.maplegood.NewAccount;
 import com.mycompany.maplegood.PasswordManager;
+import java.util.ArrayList;
 
 
 
@@ -217,7 +218,9 @@ public class LaunchPage extends javax.swing.JFrame {
             PasswordManager.data.put("hacker", PasswordManager.sha256Hash("1337"));
             
             //create default students
-            
+            ArrayList<String> str = new ArrayList<String>();
+            str.add("Track");
+            PasswordManager.studentObjectList.add(new Student("Ben", "Dnager", "Bernardino", 18, "12W", str, "Math1", "Math2", "Math3", "Math4"));
         
     }//GEN-LAST:event_testDataButtonActionPerformed
 

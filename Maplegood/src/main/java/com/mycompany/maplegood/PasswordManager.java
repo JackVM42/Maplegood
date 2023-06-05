@@ -18,10 +18,11 @@ import java.util.HashMap;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 public class PasswordManager {
          
         public static HashMap<String, String> data = new HashMap<>();
-        
+        public static ArrayList<Student> studentObjectList = new ArrayList<Student>();
 
         public static boolean checkPassword(String name, String password) {
 
