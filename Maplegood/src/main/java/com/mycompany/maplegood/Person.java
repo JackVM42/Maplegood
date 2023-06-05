@@ -35,5 +35,9 @@ public class Person {
     public int getAge(){
        return bir; 
     }
+    
+    public String getFirstName(){
+        return firstn;
+    }
 }
 

@@ -299,7 +299,10 @@ public class InputStudentInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_extraCurricularButtonActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        PasswordManager.newStudent(firstNameField.getText(), middleNameField.getText(), lastNameField.getText(), ageField.getText(), homeRoomField.getText(), ArrayList<String> extraCuriculars, String period1, String period2, String period3, String period4)
+        PasswordManager.newStudent(firstNameField.getText(), middleNameField.getText(), lastNameField.getText(), Integer.parseInt(ageField.getText()), homeRoomField.getText(), period1Field.getText(), period2Field.getText(), period3Field.getText(), period4Field.getText());
+        this.dispose();
+            LaunchPage launch = new LaunchPage();
+            launch.setVisible(true);
     }//GEN-LAST:event_enterButtonActionPerformed
 
     /**

@@ -18,12 +18,16 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+
+
 public class PasswordManager {
          
         //storage forms
         public static HashMap<String, String> data = new HashMap<>();
         public static ArrayList<Student> studentObjectList = new ArrayList<>();
         public static ArrayList<String> extraCuriculars = new ArrayList<>();
+        public static String currentName = "";
+        public static Student currentStudent = null;
 
         public static boolean checkPassword(String name, String password) {
 
@@ -47,7 +51,7 @@ public class PasswordManager {
              System.out.println(data);                     
         }
         
-        public static void newStudent(String firstName, String middleName, String lastName, int age, String homeRoom, ArrayList<String> extraCuriculars, String period1,String period2,String period3,String period4){
+        public static void newStudent(String firstName, String middleName, String lastName, int age, String homeRoom, String period1,String period2,String period3,String period4){
             studentObjectList.add(new Student(firstName, middleName, lastName, age, homeRoom, extraCuriculars, period1,period2, period3, period4));
            extraCuriculars.clear();
         }
@@ -56,6 +60,14 @@ public class PasswordManager {
             data.remove(name);
             
             //NOTE Remove student object
+        }
+        
+        public static void findStudent(){
+           for(int i = 0; i < studentObjectList.size(); i++){
+               if(studentObjectList.get(i).getFirstName().equals(currentName)){
+                   currentStudent = studentObjectList.get(i);
+               }
+           } 
         }
 
 

@@ -191,9 +191,14 @@ public class LaunchPage extends javax.swing.JFrame {
         
         //passwordCheck method not yet implemented
         if(PasswordManager.checkPassword(name, password) == true){
+            
+            //set stored name
+            PasswordManager.currentName = name;
+            
             this.dispose();
             HomePage home = new HomePage();
             home.setVisible(true);
+            
         }
         else{
             passwordMessageBox.setText("Passsword or Username is Incorrect");
