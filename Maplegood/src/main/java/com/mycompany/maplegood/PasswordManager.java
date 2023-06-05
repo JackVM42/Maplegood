@@ -12,7 +12,6 @@ package com.mycompany.maplegood;
  * @author jackvanmilligen
  */
 
-import java.util.Scanner;
 import java.util.HashMap;
 
 import java.nio.charset.StandardCharsets;
@@ -21,8 +20,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 public class PasswordManager {
          
+        //storage forms
         public static HashMap<String, String> data = new HashMap<>();
-        public static ArrayList<Student> studentObjectList = new ArrayList<Student>();
+        public static ArrayList<Student> studentObjectList = new ArrayList<>();
+        public static ArrayList<String> extraCuriculars = new ArrayList<>();
 
         public static boolean checkPassword(String name, String password) {
 
@@ -43,9 +44,12 @@ public class PasswordManager {
              data.put(name, sha256Hash(password));
              
              System.out.println("Entire Map:");
-             System.out.println(data);
-             //NOTE MAKE STUDENT OBJECT
-                     
+             System.out.println(data);                     
+        }
+        
+        public static void newStudent(String firstName, String middleName, String lastName, int age, String homeRoom, ArrayList<String> extraCuriculars, String period1,String period2,String period3,String period4){
+            studentObjectList.add(new Student(firstName, middleName, lastName, age, homeRoom, extraCuriculars, period1,period2, period3, period4));
+           extraCuriculars.clear();
         }
         
         public static void removeAccount(String name){
