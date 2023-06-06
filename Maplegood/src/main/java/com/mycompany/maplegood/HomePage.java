@@ -18,6 +18,22 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
+        
+        //find out which student
+        PasswordManager.findStudent();
+        
+        //set boxes
+        nameLabel.setText(PasswordManager.currentStudent.getFullName());
+        extraCuriculars.setText(PasswordManager.currentStudent.getExtras());
+        class1.setText(PasswordManager.currentStudent.getTimeTable()[0]);
+        class2.setText(PasswordManager.currentStudent.getTimeTable()[1]);
+        class3.setText(PasswordManager.currentStudent.getTimeTable()[2]);
+        class4.setText(PasswordManager.currentStudent.getTimeTable()[3]);
+        grade1.setText("" + PasswordManager.currentStudent.getGrade(1));
+        grade2.setText("" + PasswordManager.currentStudent.getGrade(2));
+        grade3.setText("" + PasswordManager.currentStudent.getGrade(3));
+        grade4.setText("" + PasswordManager.currentStudent.getGrade(4));
+        avgGrade.setText("" + PasswordManager.currentStudent.getAv());
     }
 
     /**
@@ -30,53 +46,53 @@ public class HomePage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        class1 = new javax.swing.JLabel();
+        grade1 = new javax.swing.JLabel();
+        class2 = new javax.swing.JLabel();
+        grade2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        class3 = new javax.swing.JLabel();
+        grade3 = new javax.swing.JLabel();
+        class4 = new javax.swing.JLabel();
+        grade4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        avgGrade = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        extraCuriculars = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel1.setText("Name");
+        nameLabel.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        nameLabel.setText("Name");
 
-        jLabel2.setText("Class 1");
+        class1.setText("Class 1");
 
-        jLabel3.setText("Grade");
+        grade1.setText("Grade");
 
-        jLabel4.setText("Class 2");
+        class2.setText("Class 2");
 
-        jLabel5.setText("Grade");
+        grade2.setText("Grade");
 
-        jLabel6.setText("Class 3");
+        class3.setText("Class 3");
 
-        jLabel7.setText("Grade");
+        grade3.setText("Grade");
 
-        jLabel8.setText("Class 4");
+        class4.setText("Class 4");
 
-        jLabel9.setText("Grade");
+        grade4.setText("Grade");
 
         jLabel10.setText("Average :");
 
-        jLabel11.setText("Grade");
+        avgGrade.setText("Grade");
 
         jLabel12.setText("Extra Curriculars:");
 
-        jLabel13.setText("Varsity Football, Track, Science Club");
+        extraCuriculars.setText("Varsity Football, Track, Science Club");
 
         jLabel14.setText("Time Table");
 
@@ -88,7 +104,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(216, 386, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel11)
+                .addComponent(avgGrade)
                 .addGap(216, 216, 216))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
@@ -96,32 +112,32 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(extraCuriculars, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
+                                .addComponent(class4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                                .addComponent(jLabel9))
+                                .addComponent(grade4))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(class3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7))
+                                .addComponent(grade3))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                                .addComponent(class2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5))
+                                .addComponent(grade2))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(class1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3))
+                                .addComponent(grade1))
                             .addComponent(jSeparator1)
                             .addComponent(jSeparator2)
                             .addComponent(jSeparator3)
                             .addComponent(jSeparator4))
                         .addGap(40, 40, 40))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel14)
                         .addGap(182, 182, 182))))
@@ -131,39 +147,39 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(class1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(grade1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
-                        .addComponent(jLabel13)))
+                        .addComponent(extraCuriculars)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(class2)
+                    .addComponent(grade2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addComponent(class3)
+                    .addComponent(grade3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(class4)
+                    .addComponent(grade4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
+                    .addComponent(avgGrade)
                     .addComponent(jLabel10))
                 .addContainerGap(185, Short.MAX_VALUE))
         );
@@ -223,25 +239,25 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel avgGrade;
+    private javax.swing.JLabel class1;
+    private javax.swing.JLabel class2;
+    private javax.swing.JLabel class3;
+    private javax.swing.JLabel class4;
+    private javax.swing.JLabel extraCuriculars;
+    private javax.swing.JLabel grade1;
+    private javax.swing.JLabel grade2;
+    private javax.swing.JLabel grade3;
+    private javax.swing.JLabel grade4;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables
 
 }
