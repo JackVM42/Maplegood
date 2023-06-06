@@ -168,10 +168,10 @@ public class NewAccount extends javax.swing.JFrame {
     private void removeAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAccountButtonActionPerformed
         String name = nameField1.getText();
         String password = passwordField1.getText();
-        System.out.println("TEST 1");
         if(PasswordManager.checkPassword(name, password) == true){
-            System.out.println("TEST 2");
-           PasswordManager.removeAccount(name); 
+           PasswordManager.removeAccount(name);
+           PasswordManager.currentName = name;
+           PasswordManager.findStudent();
         }
         
         

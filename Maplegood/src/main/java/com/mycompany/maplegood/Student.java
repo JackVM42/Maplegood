@@ -84,4 +84,16 @@ public class Student extends Person{
         return av;
     }
     
+    public String getExtras(){
+        String n ="";
+        for (int i = 0;i<extras.size();i++){
+            n += extras.get(i);
+            if (extras.size()-1!=i){
+                n += ", ";
+            }
+        }
+        return n;
+    }
+
+    
 }

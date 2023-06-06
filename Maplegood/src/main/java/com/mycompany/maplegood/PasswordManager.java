@@ -25,9 +25,9 @@ public class PasswordManager {
         //storage forms
         public static HashMap<String, String> data = new HashMap<>();
         public static ArrayList<Student> studentObjectList = new ArrayList<>();
-        public static ArrayList<String> extraCuriculars = new ArrayList<>();
         public static String currentName = "";
         public static Student currentStudent = null;
+        
 
         public static boolean checkPassword(String name, String password) {
 
@@ -51,9 +51,8 @@ public class PasswordManager {
              System.out.println(data);                     
         }
         
-        public static void newStudent(String firstName, String middleName, String lastName, int age, String homeRoom, String period1,String period2,String period3,String period4){
-            studentObjectList.add(new Student(firstName, middleName, lastName, age, homeRoom, extraCuriculars, period1,period2, period3, period4));
-           extraCuriculars.clear();
+        public static void newStudent(String firstName, String middleName, String lastName, int age, String homeRoom, ArrayList<String> extras, String period1,String period2,String period3,String period4){
+            studentObjectList.add(new Student(firstName, middleName, lastName, age, homeRoom, extras, period1,period2, period3, period4));
         }
         
         public static void removeAccount(String name){
@@ -66,6 +65,14 @@ public class PasswordManager {
            for(int i = 0; i < studentObjectList.size(); i++){
                if(studentObjectList.get(i).getFirstName().equals(currentName)){
                    currentStudent = studentObjectList.get(i);
+               }
+           } 
+        }
+        
+        public static void removeStudent(String name){
+            for(int i = 0; i < studentObjectList.size(); i++){
+               if(studentObjectList.get(i).getFirstName().equals(name)){
+                   studentObjectList.remove(i);
                }
            } 
         }
