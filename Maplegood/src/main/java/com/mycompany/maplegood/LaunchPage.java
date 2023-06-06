@@ -200,6 +200,11 @@ public class LaunchPage extends javax.swing.JFrame {
             home.setVisible(true);
             
         }
+        else if(name.equals("Admin") && password.equals("Password")){
+            this.dispose();
+            AdminFrame admin = new AdminFrame();
+            admin.setVisible(true);
+        }
         else{
             passwordMessageBox.setText("Passsword or Username is Incorrect");
         }
