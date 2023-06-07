@@ -4,6 +4,7 @@
  */
 package com.mycompany.maplegood;
 
+
 /**
  *
  * @author jackvanmilligen
@@ -37,6 +38,7 @@ public class AdminFrame extends javax.swing.JFrame {
         period3Field = new javax.swing.JTextField();
         enterButton = new javax.swing.JButton();
         nameField = new javax.swing.JTextField();
+        resetToLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,16 +63,26 @@ public class AdminFrame extends javax.swing.JFrame {
 
         nameField.setFont(new java.awt.Font("Helvetica Neue", 0, 20)); // NOI18N
 
+        resetToLogin.setFont(new java.awt.Font("Helvetica Neue", 0, 20)); // NOI18N
+        resetToLogin.setText("Return To Login");
+        resetToLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetToLoginActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nameField))
-                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(nameField))
+                    .addComponent(resetToLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(period4Field, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
@@ -81,12 +93,9 @@ public class AdminFrame extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(period2Field, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
-                            .addComponent(period3Field, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(73, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(enterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                            .addComponent(period3Field, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(enterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +125,9 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(period4Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(enterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resetToLogin))
                 .addGap(17, 17, 17))
         );
 
@@ -124,8 +135,27 @@ public class AdminFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        // TODO add your handling code here:
+        //find out which student
+        PasswordManager.currentName = nameField.getText();
+        //Get grades
+        double grade1 = Double.parseDouble(period1Field.getText());
+        double grade2 = Double.parseDouble(period2Field.getText());
+        double grade3 = Double.parseDouble(period3Field.getText());
+        double grade4 = Double.parseDouble(period4Field.getText());
+              
+        //set grades
+        
+        PasswordManager.currentStudent.setGrades(1, grade1);
+        PasswordManager.currentStudent.setGrades(2, grade2);
+        PasswordManager.currentStudent.setGrades(3, grade3);
+        PasswordManager.currentStudent.setGrades(4, grade4);
     }//GEN-LAST:event_enterButtonActionPerformed
+
+    private void resetToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetToLoginActionPerformed
+        this.dispose();
+        LaunchPage launch = new LaunchPage();
+        launch.setVisible(true);
+    }//GEN-LAST:event_resetToLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,5 +204,6 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JTextField period2Field;
     private javax.swing.JTextField period3Field;
     private javax.swing.JTextField period4Field;
+    private javax.swing.JButton resetToLogin;
     // End of variables declaration//GEN-END:variables
 }
