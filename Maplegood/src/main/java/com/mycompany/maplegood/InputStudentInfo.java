@@ -305,6 +305,8 @@ public class InputStudentInfo extends javax.swing.JFrame {
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         PasswordManager.newStudent(firstNameField.getText(), middleNameField.getText(), lastNameField.getText(), Integer.parseInt(ageField.getText()), homeRoomField.getText(), extraCuriculars, period1Field.getText(), period2Field.getText(), period3Field.getText(), period4Field.getText());
+        
+        
         this.dispose();
             LaunchPage launch = new LaunchPage();
             launch.setVisible(true);

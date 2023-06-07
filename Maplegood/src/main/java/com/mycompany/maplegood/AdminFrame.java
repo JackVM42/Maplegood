@@ -137,6 +137,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         //find out which student
         PasswordManager.currentName = nameField.getText();
+        PasswordManager.findStudent();
         //Get grades
         double grade1 = Double.parseDouble(period1Field.getText());
         double grade2 = Double.parseDouble(period2Field.getText());
