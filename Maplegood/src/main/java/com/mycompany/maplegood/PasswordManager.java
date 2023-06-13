@@ -28,6 +28,18 @@ public class PasswordManager {
         public static String currentName = "";
         public static Student currentStudent = null;
         
+        //make classes
+        public static final Class mathClass = new Class("math", "MHF 4U", "Yanchus");
+        public static final Class physicsClass = new Class("physics", "SPH 4U", "Braithwaite");
+        public static final Class chemistryClass = new Class("chemistry", "SCH 4U", "Key");
+        public static final Class computerScienceClass = new Class("computer science", "ICS 4U", "Kaune");
+        public static final Class englishClass = new Class("english", "ENG 4U", "Mathewson");
+        public static final Class frenchClass = new Class("french", "FIF 4U", "Leroy");
+        public static final Class calculusClass = new Class("calculus", "MCV 4U", "Hyde");
+        public static final Class miscellaneousClass = new Class("miscellaneous", "NA 4U", "N/A");
+        public static final Class[]  schoolClass = {mathClass,physicsClass,chemistryClass,computerScienceClass,englishClass,frenchClass,calculusClass,miscellaneousClass};
+        
+        
 
         public static boolean checkPassword(String name, String password) {
 
@@ -51,8 +63,10 @@ public class PasswordManager {
              System.out.println(data);                     
         }
         
-        public static void newStudent(String firstName, String middleName, String lastName, int age, String homeRoom, ArrayList<String> extras, String period1,String period2,String period3,String period4){
-            studentObjectList.add(new Student(firstName, middleName, lastName, age, homeRoom, extras, period1,period2, period3, period4));
+        public static Student newStudent(String firstName, String middleName, String lastName, int age, String homeRoom, ArrayList<String> extras, String period1,String period2,String period3,String period4){
+            Student stu1 = new Student(firstName, middleName, lastName, age, homeRoom, extras, period1,period2, period3, period4);
+            studentObjectList.add(stu1);
+            return stu1;
         }
         
         public static void removeAccount(String name){

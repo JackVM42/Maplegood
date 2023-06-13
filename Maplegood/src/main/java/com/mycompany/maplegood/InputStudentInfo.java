@@ -304,8 +304,59 @@ public class InputStudentInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_extraCurricularButtonActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        PasswordManager.newStudent(firstNameField.getText(), middleNameField.getText(), lastNameField.getText(), Integer.parseInt(ageField.getText()), homeRoomField.getText(), extraCuriculars, period1Field.getText(), period2Field.getText(), period3Field.getText(), period4Field.getText());
+       //create student
+       Student stu1 = PasswordManager.newStudent(firstNameField.getText(), middleNameField.getText(), lastNameField.getText(), Integer.parseInt(ageField.getText()), homeRoomField.getText(), extraCuriculars, period1Field.getText(), period2Field.getText(), period3Field.getText(), period4Field.getText());
+
+//flags
+boolean flag1 = false;
+boolean flag2 = false;
+boolean flag3 = false;
+boolean flag4 = false;
+
+//add student to class
+        //period 1
+        for(int i = 0; i < PasswordManager.schoolClass.length; i++){
+            if(PasswordManager.schoolClass[i].className().toLowerCase().equals(period1Field.getText())){
+                
+                PasswordManager.schoolClass[i].addStudent(stu1);
+                flag1 = true;
+            }
+            
+            if(PasswordManager.schoolClass[i].className().toLowerCase().equals(period2Field.getText())){
+                                
+                PasswordManager.schoolClass[i].addStudent(stu1);
+                flag2 = true;
+            }
+            
+            if(PasswordManager.schoolClass[i].className().toLowerCase().equals(period3Field.getText())){
+                                
+                PasswordManager.schoolClass[i].addStudent(stu1);
+                flag3 = true;
+            }
+            
+            if(PasswordManager.schoolClass[i].className().toLowerCase().equals(period4Field.getText())){
+
+                PasswordManager.schoolClass[i].addStudent(stu1);
+                flag4 = true;
+            }
+            
+        }
         
+        if(flag1 == false){
+             PasswordManager.schoolClass[7].addStudent(stu1);
+        }
+        
+        if(flag2 == false){
+             PasswordManager.schoolClass[7].addStudent(stu1);
+        }
+        
+        if(flag3 == false){
+             PasswordManager.schoolClass[7].addStudent(stu1);
+        }
+        
+        if(flag4 == false){
+             PasswordManager.schoolClass[7].addStudent(stu1);
+        }
         
         this.dispose();
             LaunchPage launch = new LaunchPage();

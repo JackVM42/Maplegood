@@ -14,14 +14,12 @@ public class Class {
         private String name;
         private String code;
         private String teach;
-        private int period;
         private ArrayList<Student> list = new ArrayList<Student>();
         
-        public Class (String nme, String cd, Teacher a, int p){
+        public Class (String nme, String cd, String a){
             this.name = nme;
             this.code = cd;
-            this.period = p;
-            this.teach = a.getFullName();
+            this.teach = a;
         }
         public String getCode(){
             return code;
@@ -80,5 +78,28 @@ public class Class {
             sortByGrade();
             return list.get(list.size()-1);
         }
+        
+        
+                public ArrayList<String> getClassList(){
+            ArrayList<String> arr = new ArrayList<String>();
+            sortByLast();
+            for (int i = 0; i<list.size();i++){
+                arr.add(list.get(i).getFullName());
+            }
+            return arr;
+        }
+        
+        public int getRank(String s){
+            //takes full name of student
+            String b = s.toLowerCase();
+            int rank = -1;
+            for(int i = 0;i<list.size();i++){
+                if(list.get(i).getFullName().toLowerCase().equals(b)){
+                    rank = i;
+                }
+        }
+            return rank;
+        }
+
 
 }
