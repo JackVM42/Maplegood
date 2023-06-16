@@ -68,7 +68,7 @@ public class Class {
         for (int i = 1; i<list.size(); i++){
         Student temp = list.get(i);
         int ind = i-1;
-        while (ind>=0 && temp.getGrade(name)<(list.get(ind).getGrade(name))){
+        while (ind>=0 && temp.getGrade(name)>list.get(ind).getGrade(name)){
             list.set(ind+1,list.get(ind));
             ind--;
         }
@@ -96,9 +96,11 @@ public class Class {
             //takes full name of student
             String b = s.toLowerCase();
             int rank = -1;
+            //this is the area that is not working
+            //this.sortByGrade();
             for(int i = 0;i<list.size();i++){
                 if(list.get(i).getFullName().toLowerCase().equals(b)){
-                    rank = i;
+                    return rank = i+1;
                 }
         }
             return rank;
