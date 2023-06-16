@@ -38,22 +38,35 @@ public class Student extends Person{
     public String[] getTimeTable(){
         return times;
 }
-    public boolean hasClass(String s){
-        if (s.equals(pa)||s.equals(pb)||s.equals(pc)||s.equals(pd))
-            return true;
-        return false;
+    public int hasClas(String s){
+        int c = -1;
+        for(int i = 0; i < times.length; i++){
+            if(times[i].toLowerCase().equals(s)){
+                c= i;
+            }
+        }
+        return c;
     }
     public String hasClass (int n){
         return times[n-1];
     }
-    public int getPeriod(String s){
-        if (hasClass(s)){
-            for (int i = 0; i<times.length;i++){
-                if(times[i].equals(s))
-                    return i+1;
+    
+    public int getPeriod(String s) {
+        for(int i = 0; i < 4; i++){
+            if(times[i].toLowerCase().equals(s.toLowerCase())){
+                return i+1;
+            }
         }
+        System.out.println("Still Broke");
+        return -1;
+    }
+
+    
+    public boolean hasClass(String s){
+        if(s.equals(pa.toLowerCase()) || s.equals(pb.toLowerCase()) || s.equals(pc.toLowerCase()) || s.equals(pd.toLowerCase())){
+            return true;
         }
-        return -1;     
+        return false;
     }
         
     public void setGrades(int n, double d){

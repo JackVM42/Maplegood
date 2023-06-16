@@ -45,33 +45,21 @@ public class HomePage extends javax.swing.JFrame {
         //set overall average
         avgGrade.setText("" + PasswordManager.currentStudent.getAv());
         
-        //find their classes location in the class array
-        Class[] classes = new Class[4];
-        //iterate through students class
-        for(int i = 0; i < PasswordManager.currentStudent.getTimeTable().length; i++){
-            
-            //iterate through all possible classes
-            for(int j = 0; j < PasswordManager.schoolClass.length; j++){
-                
-                //check if classes line up
-                if(PasswordManager.currentStudent.getTimeTable()[i].equals(PasswordManager.schoolClass[j].className())){
-                    classes[i] = PasswordManager.schoolClass[j];
-                }
-            }
-        }
-        
-        //set class averages
+        Class[] classes = PasswordManager.currStudentTimeTable();
         
         per1Label.setText("" + classes[0].getClassAv());
         per2Label.setText("" + classes[1].getClassAv());
         per3Label.setText("" + classes[2].getClassAv());
         per4Label.setText("" + classes[3].getClassAv());
-        //set class ranks
         
+//set class ranks
+
         rank1Label.setText("" + classes[0].getRank(PasswordManager.currentStudent.getFullName()));
         rank2Label.setText("" + classes[1].getRank(PasswordManager.currentStudent.getFullName()));
         rank3Label.setText("" + classes[2].getRank(PasswordManager.currentStudent.getFullName()));
         rank4Label.setText("" + classes[3].getRank(PasswordManager.currentStudent.getFullName()));
+        
+        
     }
 
     /**
@@ -106,6 +94,11 @@ public class HomePage extends javax.swing.JFrame {
         per3Label = new javax.swing.JLabel();
         per2Label = new javax.swing.JLabel();
         per4Label = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
         nameLabel = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         extraCuriculars = new javax.swing.JLabel();
@@ -113,25 +106,37 @@ public class HomePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         class1.setText("Class 1");
+        jPanel1.add(class1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, 25));
 
         grade1.setText("Grade");
+        jPanel1.add(grade1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, -1, -1));
 
         class2.setText("Class 2");
+        jPanel1.add(class2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
         grade2.setText("Grade");
+        jPanel1.add(grade2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
         class3.setText("Class 3");
+        jPanel1.add(class3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
         grade3.setText("Grade");
+        jPanel1.add(grade3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, -1, -1));
 
         class4.setText("Class 4");
+        jPanel1.add(class4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
 
         grade4.setText("Grade");
+        jPanel1.add(grade4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 150, -1, -1));
 
         jLabel10.setText("Overall Average:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         avgGrade.setText("Grade");
+        jPanel1.add(avgGrade, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
 
         resetToLogin.setFont(new java.awt.Font("Helvetica Neue", 0, 20)); // NOI18N
         resetToLogin.setText("Return To Login");
@@ -140,133 +145,55 @@ public class HomePage extends javax.swing.JFrame {
                 resetToLoginActionPerformed(evt);
             }
         });
+        jPanel1.add(resetToLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 457, 174, -1));
 
         jLabel1.setText("Class Average");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
         jLabel2.setText("Rank");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
 
         jLabel3.setText("Student Grade");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
 
         rank1Label.setText("Rank 1");
+        jPanel1.add(rank1Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, -1, -1));
 
         rank2Label.setText("Rank 2");
+        jPanel1.add(rank2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, -1, -1));
 
         rank3Label.setText("Rank 3");
+        jPanel1.add(rank3Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, -1, -1));
 
         rank4Label.setText("Rank 4");
+        jPanel1.add(rank4Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
 
         per1Label.setText("Per 1 Grade");
+        jPanel1.add(per1Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
 
         per3Label.setText("Per 3 Grade");
+        jPanel1.add(per3Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
 
         per2Label.setText("Per 2 Grade");
+        jPanel1.add(per2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
         per4Label.setText("Per 4 Grade");
+        jPanel1.add(per4Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(120, 120, 120)
-                                .addComponent(jLabel1)
-                                .addGap(71, 71, 71)
-                                .addComponent(jLabel2)
-                                .addGap(71, 71, 71)
-                                .addComponent(jLabel3))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(class3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(per3Label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(rank3Label))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(class1)
-                                            .addComponent(class2))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(per2Label)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(rank2Label))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(per1Label)
-                                                .addGap(49, 49, 49)
-                                                .addComponent(rank1Label))))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(class4)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel10)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(avgGrade)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(per4Label)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(rank4Label)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(grade1)
-                                    .addComponent(grade2)
-                                    .addComponent(grade3)
-                                    .addComponent(grade4))
-                                .addGap(34, 34, 34)))
-                        .addGap(0, 167, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(resetToLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(9, 9, 9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(class1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rank1Label)
-                    .addComponent(per1Label)
-                    .addComponent(grade1))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(class2)
-                    .addComponent(rank2Label)
-                    .addComponent(per2Label)
-                    .addComponent(grade2))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(class3)
-                    .addComponent(rank3Label)
-                    .addComponent(per3Label)
-                    .addComponent(grade3))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(class4)
-                    .addComponent(grade4)
-                    .addComponent(rank4Label)
-                    .addComponent(per4Label))
-                .addGap(56, 56, 56)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(avgGrade))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
-                .addComponent(resetToLogin)
-                .addGap(19, 19, 19))
-        );
+        jSeparator1.setFont(new java.awt.Font("Helvetica Neue", 0, 20)); // NOI18N
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 710, 10));
+
+        jSeparator2.setFont(new java.awt.Font("Helvetica Neue", 0, 20)); // NOI18N
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 710, 10));
+
+        jSeparator3.setFont(new java.awt.Font("Helvetica Neue", 0, 20)); // NOI18N
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 710, 10));
+
+        jSeparator4.setFont(new java.awt.Font("Helvetica Neue", 0, 20)); // NOI18N
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 710, 10));
+
+        jSeparator5.setFont(new java.awt.Font("Helvetica Neue", 0, 20)); // NOI18N
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 710, 10));
 
         nameLabel.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         nameLabel.setText("Name");
@@ -290,10 +217,11 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(extraCuriculars, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(659, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addGap(381, 381, 381))
         );
@@ -376,6 +304,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel per1Label;
     private javax.swing.JLabel per2Label;

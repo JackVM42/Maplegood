@@ -36,12 +36,14 @@ public class Class {
             return teach;
         }
         public double getClassAv(){
+            
             double av = 0;
             int p;
             //get grade from every student in the class
             for (int i = 0; i<list.size();i++){
                 p = list.get(i).getPeriod(name);
-                av += list.get(i).getGrade(p);
+                
+                av = av + list.get(i).getGrade(p);
             }
             av = av/list.size();
             int dre = (int)(av*100);
@@ -89,6 +91,7 @@ public class Class {
             return arr;
         }
         
+                //CODE NO GOOD
         public int getRank(String s){
             //takes full name of student
             String b = s.toLowerCase();

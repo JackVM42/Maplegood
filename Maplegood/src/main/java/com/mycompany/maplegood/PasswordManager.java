@@ -39,6 +39,59 @@ public class PasswordManager {
         public static final Class miscellaneousClass = new Class("miscellaneous", "NA 4U", "N/A");
         public static final Class[]  schoolClass = {mathClass,physicsClass,chemistryClass,computerScienceClass,englishClass,frenchClass,calculusClass,miscellaneousClass};
         
+        public static void defaultStudents(){
+    
+        //move usernames and passwords into hashmap (hash passwords using sha256)
+            data.put("Ben", sha256Hash("1337"));
+            data.put("Jack", sha256Hash("pass42"));
+            data.put("Brendan",sha256Hash("incorrect"));
+            
+            //create default students
+            ArrayList<String> str = new ArrayList<>();
+            str.add("Rugby");
+            currentStudent = new Student("Jack", "Allan John", "Van Milligen", 18, "12W", str, "calculus", "physics", "computer science", "math");
+            studentObjectList.add(currentStudent);
+            physicsClass.addStudent(currentStudent);
+            calculusClass.addStudent(currentStudent);
+            computerScienceClass.addStudent(currentStudent);
+            mathClass.addStudent(currentStudent);
+            currentStudent.setGrades(1, 15);
+            currentStudent.setGrades(2, 50);
+            currentStudent.setGrades(3, 0);
+            currentStudent.setGrades(4, 1);
+            
+            str.clear();
+            str.add("Baseball");
+            str.add("Badminton");
+            str.add("Track");
+            str.add("Science Team");
+            currentStudent = new Student("Brendan", "Thomas Jones", "Abbey", 18, "12A", str, "Calculus", "Physics", "math", "computer Science");
+            studentObjectList.add(currentStudent);
+            physicsClass.addStudent(currentStudent);
+            calculusClass.addStudent(currentStudent);
+            computerScienceClass.addStudent(currentStudent);
+            mathClass.addStudent(currentStudent);
+            currentStudent.setGrades(1, 100);
+            currentStudent.setGrades(2, 15);
+            currentStudent.setGrades(3, 2);
+            currentStudent.setGrades(4, 0);
+            
+            
+            str.clear();
+            str.add("Track");
+            currentStudent = new Student("Ben", "Danger", "Bernardino", 18, "12B", str, "math", "computer Science", "Physics","Calculus");
+            studentObjectList.add(currentStudent);
+            physicsClass.addStudent(currentStudent);
+            calculusClass.addStudent(currentStudent);
+            computerScienceClass.addStudent(currentStudent);
+            mathClass.addStudent(currentStudent);
+            currentStudent.setGrades(1, 3);
+            currentStudent.setGrades(2, 0);
+            currentStudent.setGrades(3, 30);
+            currentStudent.setGrades(4, 0);
+        }
+        
+        
         
 
         public static boolean checkPassword(String name, String password) {
@@ -57,10 +110,7 @@ public class PasswordManager {
         }
         
         public static void newAccount(String name, String password) {
-             data.put(name, sha256Hash(password));
-             
-             System.out.println("Entire Map:");
-             System.out.println(data);                     
+             data.put(name, sha256Hash(password));                  
         }
         
         public static Student newStudent(String firstName, String middleName, String lastName, int age, String homeRoom, ArrayList<String> extras, String period1,String period2,String period3,String period4){
@@ -90,6 +140,72 @@ public class PasswordManager {
                }
            } 
         }
+        
+        public static Class[] currStudentTimeTable(){
+            Class[] classes = new Class[4];
+            classes[0] = miscellaneousClass;
+            classes[1] = miscellaneousClass;
+            classes[2] = miscellaneousClass;
+            classes[3] = miscellaneousClass;
+            
+            //math
+            int check = currentStudent.hasClas("math");
+            
+            if(check != -1){
+                classes[check] = mathClass;
+            }
+            
+            //physics
+            check = currentStudent.hasClas("physics");
+            
+            if(check != -1){
+                classes[check] = physicsClass;
+            }
+            
+            //chemistry
+            check = currentStudent.hasClas("chemistry");
+            
+            if(check != -1){
+                classes[check] = chemistryClass;
+            }
+            
+            //comp sci
+            check = currentStudent.hasClas("computer science");
+            
+            if(check != -1){
+                classes[check] = computerScienceClass;
+            }
+            //english
+            check = currentStudent.hasClas("english");
+            
+            if(check != -1){
+                classes[check] = englishClass;
+            }
+            
+            //french
+            check = currentStudent.hasClas("french");
+            
+            if(check != -1){
+                classes[check] = frenchClass;
+            }
+            
+            //calc
+            check = currentStudent.hasClas("calculus");
+            
+            if(check != -1){
+                classes[check] = calculusClass;
+            }
+            
+            //misc
+            check = currentStudent.hasClas("miscellaneous");
+            
+            if(check != -1){
+                classes[check] = miscellaneousClass;
+            }
+            
+            return classes;
+        }
+
 
 
 
@@ -104,7 +220,6 @@ public class PasswordManager {
             String hash = new String(hashBytes, StandardCharsets.UTF_8);
 
 
-            //System.out.println("SHA-256 Hash: " + hash);
             return hash;
         }
         catch (NoSuchAlgorithmException e) {

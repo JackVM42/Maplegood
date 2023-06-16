@@ -1,8 +1,6 @@
 package com.mycompany.maplegood;
 
 
-import com.mycompany.maplegood.NewAccount;
-import com.mycompany.maplegood.PasswordManager;
 import java.util.ArrayList;
 
 
@@ -66,7 +64,7 @@ public class LaunchPage extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         nameLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 20)); // NOI18N
         nameLabel.setText("Name:");
@@ -198,7 +196,7 @@ public class LaunchPage extends javax.swing.JFrame {
             this.dispose();
             HomePage home = new HomePage();
             home.setVisible(true);
-            
+              
         }
         else if(name.equals("Admin") && password.equals("Password")){
             this.dispose();
@@ -221,15 +219,7 @@ public class LaunchPage extends javax.swing.JFrame {
     }//GEN-LAST:event_newAccountButtonActionPerformed
 
     private void testDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testDataButtonActionPerformed
-
-        //move usernames and passwords into hashmap (hash passwords using sha256)
-            PasswordManager.data.put("Ben", PasswordManager.sha256Hash("password123"));
-            
-            //create default students
-            ArrayList<String> str = new ArrayList<String>();
-            str.add("Track");
-            PasswordManager.studentObjectList.add(new Student("Ben", "Dnager", "Bernardino", 18, "12W", str, "Math1", "Math2", "Math3", "Math4"));
-        
+        PasswordManager.defaultStudents();
     }//GEN-LAST:event_testDataButtonActionPerformed
 
     /**
