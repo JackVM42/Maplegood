@@ -4,7 +4,8 @@
  */
 package com.mycompany.maplegood;
 
-import java.util.ArrayList;
+import java.util.*;
+
 
 /**
  *
@@ -46,8 +47,8 @@ public class Class {
                 av = av + list.get(i).getGrade(p);
             }
             av = av/list.size();
-            int dre = (int)(av*100);
-            return av = dre/100;
+            double dre = Math.round(av * 100.0) / 100.0;
+            return dre;
         }
         
         public void sortByLast(){
@@ -64,6 +65,7 @@ public class Class {
   }
         }
         public void sortByGrade(){
+        
         // sorts grade from lowest to highest
         for (int i = 1; i<list.size(); i++){
         Student temp = list.get(i);
@@ -74,6 +76,11 @@ public class Class {
         }
         list.set(ind+1,temp);
   }
+        
+        //TEST
+        for(Student stu: list){
+            System.out.println(stu.getGrade(name));
+        }
         }
         
         public Student getBest(){
@@ -95,13 +102,14 @@ public class Class {
         public int getRank(String s){
             //takes full name of student
             String b = s.toLowerCase();
+            sortByGrade();
             int rank = -1;
-            for(int i = 0;i<list.size();i++){
+            for(int i = list.size() - 1; i>=0; i--){
                 if(list.get(i).getFullName().toLowerCase().equals(b)){
                     rank = i;
                 }
         }
-            return rank;
+            return list.size() - rank;
         }
 
 

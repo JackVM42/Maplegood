@@ -79,8 +79,8 @@ public class Student extends Person{
     }
     public double getGrade(String s){
         int p = -1;
-    for (int i = 0; i<times.length;i++){
-        if(times[i].equals(s))
+    for (int i = 0; i <times.length; i++){
+        if(times[i].toLowerCase().equals(s.toLowerCase()))
             p=i;
     }
     return getGrade(p+1);

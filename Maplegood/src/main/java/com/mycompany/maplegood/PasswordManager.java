@@ -49,15 +49,15 @@ public class PasswordManager {
             //create default students
             ArrayList<String> str = new ArrayList<>();
             str.add("Rugby");
-            currentStudent = new Student("Jack", "Allan John", "Van Milligen", 18, "12W", str, "calculus", "physics", "computer science", "math");
+            currentStudent = new Student("Jack", "Allan John", "Van Milligen", 18, "12W", str,  "Calculus", "Physics", "math", "computer Science");
             studentObjectList.add(currentStudent);
             physicsClass.addStudent(currentStudent);
             calculusClass.addStudent(currentStudent);
             computerScienceClass.addStudent(currentStudent);
             mathClass.addStudent(currentStudent);
-            currentStudent.setGrades(1, 15);
+            currentStudent.setGrades(1, 75);
             currentStudent.setGrades(2, 50);
-            currentStudent.setGrades(3, 0);
+            currentStudent.setGrades(3, 100);
             currentStudent.setGrades(4, 1);
             
             str.clear();
@@ -79,7 +79,7 @@ public class PasswordManager {
             
             str.clear();
             str.add("Track");
-            currentStudent = new Student("Ben", "Danger", "Bernardino", 18, "12B", str, "math", "computer Science", "Physics","Calculus");
+            currentStudent = new Student("Ben", "Danger", "Bernardino", 18, "12B", str, "Calculus", "Physics", "math", "computer Science");
             studentObjectList.add(currentStudent);
             physicsClass.addStudent(currentStudent);
             calculusClass.addStudent(currentStudent);
@@ -88,7 +88,7 @@ public class PasswordManager {
             currentStudent.setGrades(1, 3);
             currentStudent.setGrades(2, 0);
             currentStudent.setGrades(3, 30);
-            currentStudent.setGrades(4, 0);
+            currentStudent.setGrades(4, 25);
         }
         
         
