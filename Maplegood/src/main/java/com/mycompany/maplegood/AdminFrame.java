@@ -144,8 +144,14 @@ public class AdminFrame extends javax.swing.JFrame {
         double grade3 = Double.parseDouble(period3Field.getText());
         double grade4 = Double.parseDouble(period4Field.getText());
               
+       //clear all boxes
+       period1Field.setText("");
+       period2Field.setText("");
+       period3Field.setText("");
+       period4Field.setText("");
+       nameField.setText("");
+       
         //set grades
-        
         PasswordManager.currentStudent.setGrades(1, grade1);
         PasswordManager.currentStudent.setGrades(2, grade2);
         PasswordManager.currentStudent.setGrades(3, grade3);

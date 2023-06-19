@@ -31,10 +31,10 @@ public class HomePage extends javax.swing.JFrame {
         extraCuriculars.setText(PasswordManager.currentStudent.getExtras());
         
         //set class names
-        class1.setText(PasswordManager.currentStudent.getTimeTable()[0]);
-        class2.setText(PasswordManager.currentStudent.getTimeTable()[1]);
-        class3.setText(PasswordManager.currentStudent.getTimeTable()[2]);
-        class4.setText(PasswordManager.currentStudent.getTimeTable()[3]);
+        class1.setText(PasswordManager.currentStudent.getTimeTable()[0].toUpperCase());
+        class2.setText(PasswordManager.currentStudent.getTimeTable()[1].toUpperCase());
+        class3.setText(PasswordManager.currentStudent.getTimeTable()[2].toUpperCase());
+        class4.setText(PasswordManager.currentStudent.getTimeTable()[3].toUpperCase());
         
         //grade sets
         grade1.setText("" + PasswordManager.currentStudent.getGrade(1));
@@ -53,7 +53,6 @@ public class HomePage extends javax.swing.JFrame {
         per4Label.setText("" + classes[3].getClassAv());
         
 //set class ranks
-
         rank1Label.setText("" + classes[0].getRank(PasswordManager.currentStudent.getFullName()));
         rank2Label.setText("" + classes[1].getRank(PasswordManager.currentStudent.getFullName()));
         rank3Label.setText("" + classes[2].getRank(PasswordManager.currentStudent.getFullName()));

@@ -35,9 +35,18 @@ public class Student extends Person{
         times[2] = pc;
         times[3] = pd;
     }
+    /**
+     * getter for students timetable
+     * @return array of the names of students timetable
+     */
     public String[] getTimeTable(){
         return times;
 }
+    /**
+     * Checks what period a student has a class
+     * @param s name of a class
+     * @return index the class is in timetables array or -1 if doesn't have class
+     */
     public int hasClas(String s){
         int c = -1;
         for(int i = 0; i < times.length; i++){
@@ -47,33 +56,53 @@ public class Student extends Person{
         }
         return c;
     }
+    /**
+     * finds what class the student has at a certain period
+     * @param n period number
+     * @return class name
+     */
     public String hasClass (int n){
         return times[n-1];
     }
-    
+    /**
+     * Finds the period the student has a certain class
+     * @param s class
+     * @return period student has class s
+     */
     public int getPeriod(String s) {
         for(int i = 0; i < 4; i++){
             if(times[i].toLowerCase().equals(s.toLowerCase())){
                 return i+1;
             }
         }
-        System.out.println("Still Broke");
         return -1;
     }
 
-    
+    /**
+     * Checks if a student has a class
+     * @param s class name
+     * @return boolean if student has the class
+     */
     public boolean hasClass(String s){
         if(s.equals(pa.toLowerCase()) || s.equals(pb.toLowerCase()) || s.equals(pc.toLowerCase()) || s.equals(pd.toLowerCase())){
             return true;
         }
         return false;
     }
-        
+    /**
+     * sets students grades
+     * @param n period number of students class
+     * @param d student's grade
+     */
     public void setGrades(int n, double d){
         //take the period number and grade
         grade[n-1] = d;
     }
-    
+    /**
+     * getter for students grades
+     * @param n period number
+     * @return double students grade
+     */
     public double getGrade(int n){
         return grade[n-1];
     }
