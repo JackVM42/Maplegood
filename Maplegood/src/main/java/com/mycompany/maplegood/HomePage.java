@@ -45,6 +45,7 @@ public class HomePage extends javax.swing.JFrame {
         //set overall average
         avgGrade.setText("" + PasswordManager.currentStudent.getAv());
         
+        //gets an array of the students class objects
         Class[] classes = PasswordManager.currStudentTimeTable();
         
         per1Label.setText("" + classes[0].getClassAv());
@@ -245,6 +246,7 @@ public class HomePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void resetToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetToLoginActionPerformed
+        //closes this frame and takes you back to the launchpage
         this.dispose();
         LaunchPage launch = new LaunchPage();
         launch.setVisible(true);

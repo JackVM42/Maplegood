@@ -153,9 +153,13 @@ public class NewAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordField1ActionPerformed
 
     private void addAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAccountButtonActionPerformed
+        
+        //This string stores the name of the student returned by the name box
         String name = nameField1.getText();
+        //This string gets the password from the password box
         String password = passwordField1.getText();
         
+        //calls the newAccount method which creates adds the student object into the login hashmap
         PasswordManager.newAccount(name, password);
         
         //Move to student input page
@@ -166,11 +170,23 @@ public class NewAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_addAccountButtonActionPerformed
 
     private void removeAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAccountButtonActionPerformed
+        
+        //stores the name of the student
         String name = nameField1.getText();
+        
+        //stores the password
         String password = passwordField1.getText();
+        
+        //checks that the username and password entered match
         if(PasswordManager.checkPassword(name, password) == true){
+            
+            //calls the remove account methiod to remove it from the hash map
            PasswordManager.removeAccount(name);
+           
+           //sets the current name variable in PasswordManager to the name entered
            PasswordManager.currentName = name;
+           
+           //find the student object with currentName
            PasswordManager.findStudent();
         }
         
@@ -178,6 +194,8 @@ public class NewAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_removeAccountButtonActionPerformed
 
     private void resetToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetToLoginActionPerformed
+        
+        //Goes back to launch page
         this.dispose();
             LaunchPage launch = new LaunchPage();
             launch.setVisible(true);

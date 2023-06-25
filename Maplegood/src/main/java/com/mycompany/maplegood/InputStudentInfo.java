@@ -14,6 +14,7 @@ public class InputStudentInfo extends javax.swing.JFrame {
 
     //Array List to store extracurriculars
     public static ArrayList<String> extraCuriculars = new ArrayList<>();
+    
     /**
      * Creates new form InputStudentInfo
      */
@@ -307,33 +308,38 @@ public class InputStudentInfo extends javax.swing.JFrame {
        //create student
        Student stu1 = PasswordManager.newStudent(firstNameField.getText(), middleNameField.getText(), lastNameField.getText(), Integer.parseInt(ageField.getText()), homeRoomField.getText(), extraCuriculars, period1Field.getText(), period2Field.getText(), period3Field.getText(), period4Field.getText());
 
-//flags
+//flags to check whether the student has been placed in a class for each period
 boolean flag1 = false;
 boolean flag2 = false;
 boolean flag3 = false;
 boolean flag4 = false;
 
-//add student to class
-        //period 1
+
+        //iterate through all possible classes
         for(int i = 0; i < PasswordManager.schoolClass.length; i++){
+            
+            //period 1
             if(PasswordManager.schoolClass[i].className().toLowerCase().equals(period1Field.getText())){
                 
                 PasswordManager.schoolClass[i].addStudent(stu1);
                 flag1 = true;
             }
             
+            //period 2
             if(PasswordManager.schoolClass[i].className().toLowerCase().equals(period2Field.getText())){
                                 
                 PasswordManager.schoolClass[i].addStudent(stu1);
                 flag2 = true;
             }
             
+            //period 3
             if(PasswordManager.schoolClass[i].className().toLowerCase().equals(period3Field.getText())){
                                 
                 PasswordManager.schoolClass[i].addStudent(stu1);
                 flag3 = true;
             }
             
+            //period 4
             if(PasswordManager.schoolClass[i].className().toLowerCase().equals(period4Field.getText())){
 
                 PasswordManager.schoolClass[i].addStudent(stu1);
@@ -342,6 +348,7 @@ boolean flag4 = false;
             
         }
         
+        //check that the student has had each of their classes added and if not add them to the miscelanius class
         if(flag1 == false){
              PasswordManager.schoolClass[7].addStudent(stu1);
         }
@@ -358,6 +365,7 @@ boolean flag4 = false;
              PasswordManager.schoolClass[7].addStudent(stu1);
         }
         
+        //go back to launch page
         this.dispose();
             LaunchPage launch = new LaunchPage();
             launch.setVisible(true);

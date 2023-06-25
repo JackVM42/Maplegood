@@ -135,9 +135,11 @@ public class AdminFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
+        
         //find out which student
         PasswordManager.currentName = nameField.getText();
         PasswordManager.findStudent();
+        
         //Get grades
         double grade1 = Double.parseDouble(period1Field.getText());
         double grade2 = Double.parseDouble(period2Field.getText());
@@ -159,6 +161,7 @@ public class AdminFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_enterButtonActionPerformed
 
     private void resetToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetToLoginActionPerformed
+        //closes this frame and opens launch page
         this.dispose();
         LaunchPage launch = new LaunchPage();
         launch.setVisible(true);

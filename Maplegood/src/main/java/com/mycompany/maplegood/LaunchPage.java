@@ -176,6 +176,7 @@ public class LaunchPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        //closes the program
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -184,25 +185,30 @@ public class LaunchPage extends javax.swing.JFrame {
     }//GEN-LAST:event_nameFieldActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
+        //stores th ename and password which are entered
         String name = nameField.getText();
         String password = passwordField.getText();
         
-        //passwordCheck method not yet implemented
+        //checks that the entered password is correct
         if(PasswordManager.checkPassword(name, password) == true){
             
             //set stored name
             PasswordManager.currentName = name;
             
+            //closes this frame and opens the home page
             this.dispose();
             HomePage home = new HomePage();
             home.setVisible(true);
               
         }
+        //checks if you are logging in as admin
         else if(name.equals("Admin") && password.equals("Password")){
+            //closes this frame and opens the admin frame
             this.dispose();
             AdminFrame admin = new AdminFrame();
             admin.setVisible(true);
         }
+        //gives the incorrect password message 
         else{
             passwordMessageBox.setText("Passsword or Username is Incorrect");
         }
@@ -213,6 +219,7 @@ public class LaunchPage extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void newAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newAccountButtonActionPerformed
+        //closes this window and opens the new account page
         this.dispose();
             NewAccount newAccountPage = new NewAccount();
             newAccountPage.setVisible(true);

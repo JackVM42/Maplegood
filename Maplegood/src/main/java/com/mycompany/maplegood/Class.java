@@ -114,15 +114,11 @@ public class Class {
             ind--;
         }
         list.set(ind+1,temp);
-  }
+        }
+        }
         
-        //TEST
-        for(Student stu: list){
-            System.out.println(stu.getGrade(name));
-        }
-        }
         /**
-         * 
+         * Gets the student with the best grade in the class
          * @return returns the student with the best grade in the class
          */
         public Student getBest(){
@@ -131,20 +127,20 @@ public class Class {
         }
         
         /**
-         * 
+         * Method to get a list of student names in the class
          * @return a list of every student in the class
          */
-                public ArrayList<String> getClassList(){
-            ArrayList<String> arr = new ArrayList<String>();
-            sortByLast();
-            for (int i = 0; i<list.size();i++){
-                arr.add(list.get(i).getFullName());
-            }
-            return arr;
+        public ArrayList<String> getClassList(){
+        ArrayList<String> arr = new ArrayList<>();
+        sortByLast();
+        for (int i = 0; i<list.size();i++){
+            arr.add(list.get(i).getFullName());
+        }
+        return arr;
         }
         
         /**
-         * 
+         * Takes the full name of a student and returns their rank within the class
          * @param s students full name
          * @return the rank of the student in the class
          */
@@ -157,9 +153,9 @@ public class Class {
                 if(list.get(i).getFullName().toLowerCase().equals(b)){
                     rank = i;
                 }
-        }
-            return list.size() - rank;
-        }
+                }
+                return list.size() - rank;
+            }
 
 
 }

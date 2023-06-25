@@ -7,28 +7,43 @@ package com.mycompany.maplegood;
 import java.util.ArrayList;
 
 /**
- *
+ *Student class extends the person class
  * @author jackvanmilligen
  */
 public class Student extends Person{
     
-    private ArrayList<String> extras = new ArrayList<String>();
-    private String pa;
-    private String pb;
-    private String pc;
-    private String pd;
-    private double [] grade = new double[4];
-    private String [] times = new String[4];
+    private ArrayList<String> extras = new ArrayList<>();//extracurriculars
+    private String pa;//periodd 1
+    private String pb;//period 2
+    private String pc;//period 3
+    private String pd;//period 4
+    private double [] grade = new double[4];//keeps track of grades in 4 classes
+    private String [] times = new String[4];//keeps track of the classes
     
+    /**
+     * Constructor for student object
+     * @param f First Name
+     * @param m Middle Name
+     * @param l Last Name
+     * @param b age
+     * @param h homeroom
+     * @param ext extra curriculars
+     * @param pw period 1
+     * @param px period 2
+     * @param py period 3
+     * @param pz period 4
+     */
     public Student(String f, String m, String l, int b, String h,ArrayList<String> ext, String pw,String px,String py,String pz){
-        //Firt Name, Middle Name, Last Name, age, homeroom, extra-curriculars, period 1, period 2, period 3, period 4
+       
         super(f,m,l,b,h);
         this.extras = ext;
+        
         //get each periods class
         this.pa = pw;
         this.pb = px;
         this.pc = py;
         this.pd = pz;
+        
         //set time table array
         times[0] = pa;
         times[1] = pb;
@@ -56,6 +71,7 @@ public class Student extends Person{
         }
         return c;
     }
+    
     /**
      * finds what class the student has at a certain period
      * @param n period number
@@ -64,6 +80,7 @@ public class Student extends Person{
     public String hasClass (int n){
         return times[n-1];
     }
+    
     /**
      * Finds the period the student has a certain class
      * @param s class
@@ -89,6 +106,7 @@ public class Student extends Person{
         }
         return false;
     }
+    
     /**
      * sets students grades
      * @param n period number of students class
@@ -98,6 +116,7 @@ public class Student extends Person{
         //take the period number and grade
         grade[n-1] = d;
     }
+    
     /**
      * getter for students grades
      * @param n period number
@@ -106,6 +125,12 @@ public class Student extends Person{
     public double getGrade(int n){
         return grade[n-1];
     }
+    
+    /**
+     * gets grades for a class given the class name
+     * @param s the string name of the class
+     * @return returns the grade as a double
+     */
     public double getGrade(String s){
         int p = -1;
     for (int i = 0; i <times.length; i++){
@@ -115,6 +140,10 @@ public class Student extends Person{
     return getGrade(p+1);
     }
     
+    /**
+     * returns the students average over their four classes
+     * @return a double of the students average
+     */
     public double getAv(){
         double av = 0;
         for (int i = 0; i<grade.length;i++){
@@ -126,6 +155,10 @@ public class Student extends Person{
         return av;
     }
     
+    /**
+     * Returns a string of the students extra curiculars
+     * @return a string representation of extras array
+     */
     public String getExtras(){
         String n ="";
         for (int i = 0;i<extras.size();i++){
